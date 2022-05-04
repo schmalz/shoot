@@ -1,0 +1,4 @@
+{:paths ["src" "resources"]
+ :deps {org.clojure/clojure {:mvn/version "1.10.3"}
+        quil/quil {:mvn/version "4.0.0-SNAPSHOT"}
+        io.github.schmalz/colours {:git/tag "v0.0.1" :git/sha "1526a38"}}}
