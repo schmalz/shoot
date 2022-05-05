@@ -1,4 +1,4 @@
 Shoot
 =====
 
-Shoot some grey circle.
+Shoot some grey circles.
