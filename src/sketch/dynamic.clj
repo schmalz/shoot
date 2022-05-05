@@ -28,19 +28,21 @@
 (defn- draw-point
   "Create a point in the circles."
   []
-  (let [f (* 75
-             (q/random-gaussian))
+  (let [factor (q/random-gaussian)
+        spread (* 75 factor)
+        radius (- 7
+                  (q/map-range factor -1.0 1.0 0.0 7.0))
         [x y] (q/random-2d)]
-    (q/ellipse (* x f)
-               (* y f)
-               3
-               3)))
+    (q/ellipse (* x spread)
+               (* y spread)
+               radius
+               radius)))
 
 (defn- draw-points
   "Create N points in the circles."
   [n]
-  (apply q/fill colours/red)
-  (apply q/stroke colours/red)
+  (apply q/fill colours/base3)
+  (apply q/stroke colours/base3)
   (q/with-translation [(width-proportion (q/random 1.0))
                        (height-proportion (q/random 1.0))]
     (dotimes [_ n]
@@ -52,8 +54,12 @@
   (q/with-translation [(width-proportion 0.5)
                        (height-proportion 0.5)]
     (dotimes [r n]
-      (q/stroke 180 9 63 (q/random 1.0))
-      (q/ellipse (q/random -5 5) (q/random -5 5) r r))))
+      (apply q/stroke
+             (conj colours/base1 (q/random 1.0)))
+      (q/ellipse (q/random -5 5)
+                 (q/random -5 5)
+                 r
+                 r))))
 
 (defn draw
   []
