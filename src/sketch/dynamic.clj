@@ -1,7 +1,7 @@
 (ns sketch.dynamic
   (:require [clojure.pprint :as pp]
             [quil.core :as q]
-            [colours]))
+            [colours.core :as colours]))
 
 (defn save-frame-to-disk
   ([]
